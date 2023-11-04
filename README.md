@@ -33,7 +33,7 @@
 <h1 align="center">The Tech Blog</h1>
 
   <p align="center">
-    A CMS-style blog site, where devs can publish their blogposts and comment on other developers posts.
+    A CMS-style blog site, where devs can publish their blogposts and comment on other developers' posts.
     <br><br>
     <a href="">Visit the deployed site here</a>
   </p>
@@ -79,9 +79,9 @@ To use this application, simply visit the deployed site <a href="">here</a>
 Here's a quick peek at what you can expect to see!
 
 
-<img src="./Assets/screenshot1.png" alt="a screenshot" width="400" height="250">
-<img src="./Assets/screenshot2.png" alt="a screenshot" width="400" height="250">
-<img src="./Assets/screenshot3.png" alt="a screenshot" width="400" height="250">
+<img src="./Assets/screenshot1.png" alt="a screenshot" width="720" height="400">
+<img src="./Assets/screenshot2.png" alt="a screenshot" width="720" height="400">
+<img src="./Assets/screenshot3.png" alt="a screenshot" width="720" height="400">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
