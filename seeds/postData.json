@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The Rise of 5G Technology",
+    "content": "5G technology is taking the world by storm. With faster speeds, lower latency, and increased connectivity, 5G is poised to revolutionize various industries. From autonomous vehicles to the Internet of Things, the possibilities are endless.",
+    "user_id": 1,
+    "date_created": "11/4/2023"
+  },
+  {
+    "title": "The Impact of Artificial Intelligence on Healthcare",
+    "content": "Artificial Intelligence (AI) is making significant strides in the healthcare industry. With AI-powered diagnostic tools, predictive analytics, and personalized treatment plans, patient care is becoming more efficient and accurate. AI is not just a buzzword; it's a game-changer for healthcare.",
+    "user_id": 2,
+    "date_created": "11/3/2023"
+  },
+  {
+    "title": "The Future of Quantum Computing",
+    "content": "Quantum computing is on the horizon, and it promises to redefine computing as we know it. With the ability to solve complex problems at speeds unimaginable with classical computers, quantum computing has applications in cryptography, drug discovery, and more. The race to build practical quantum computers is heating up, and the future looks exciting.",
+    "user_id": 3,
+    "date_created": "11/1/2023"
+  }
+]
