@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between">
+    <h2 class="text-light">Your Dashboard</h2>
+    <div>
+    {{> create-post}}
+    </div>
+</div>
+{{#each posts as |post|}}
+{{> users-posts}}
+{{/each}}
