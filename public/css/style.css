@@ -22,6 +22,7 @@ a {
     text-decoration: none;
 }
 
+/* main cards */
 .b-primary {
     border-width: 2px;
     border-style: solid;
@@ -36,6 +37,7 @@ a {
     color: var(--secondary);
 }
 
+/* Button classes */
 .btn-prmy {
     background-color: var(--primary);
     border: none;

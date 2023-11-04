@@ -2,15 +2,15 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET ROUTES for all views
+
+// Home
 router.get('/', async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
     const postData = await Post.findAll();
 
-    // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
     res.render('homepage', {
       posts,
       logged_in: req.session.logged_in
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+// users dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -43,8 +43,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-})
+});
 
+// view selcted post
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -68,6 +69,7 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
+// Edit specific post form
 router.get('/edit-posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -91,6 +93,7 @@ router.get('/edit-posts/:id', async (req, res) => {
   }
 });
 
+// Create a new post form
 router.get('/new-post', withAuth, (req, res) => {
   try {
     res.render('new-post', {
@@ -99,26 +102,23 @@ router.get('/new-post', withAuth, (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  
-})
+});
 
+// Login form
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-
   res.render('login');
 });
 
+// Signup form
 router.get('/signup', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-
   res.render('signup');
 });
 

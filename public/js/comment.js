@@ -1,5 +1,5 @@
+// Handles adding a comment to a blogpost
 const addCommentHandler = async () => {
-    
     const content = document.querySelector('#comment').value.trim();
     const post_id = parseInt(window.location.pathname.split('/').pop());
 
@@ -16,9 +16,7 @@ const addCommentHandler = async () => {
             alert('Failed to create a comment');
         }
     }
-}
-
+};
 
 const commentBtnEl = document.querySelector('#submit');
-
 if (commentBtnEl) commentBtnEl.addEventListener('click', addCommentHandler);
