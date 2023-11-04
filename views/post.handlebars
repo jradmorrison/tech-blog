@@ -11,18 +11,28 @@
   </div>
 </div>
 {{#each comments}}
-  <div class="my-3 bg-light py-1 px-4 d-flex flex-row align-items-center rounded">
+  <div
+    class="my-3 bg-light py-1 px-4 d-flex flex-row align-items-center rounded"
+  >
     <h6 class="mb-0">{{user.username}}:</h6>
     <p class="mb-0 mx-2">{{content}}</p>
   </div>
 {{/each}}
+
+{{#if logged_in}}
 <div>
   <form>
-  <div class="d-flex" id="comment-form">
-    <input type="text" class="form-control flex-grow-1" id="comment" placeholder="Leave a comment">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</form>
+    <div class="d-flex">
+      <input
+        type="text"
+        class="form-control flex-grow-1"
+        id="comment"
+        placeholder="Leave a comment"
+      />
+      <button class="btn btn-primary" id="submit">Submit</button>
+    </div>
+  </form>
 </div>
 
-<script src="./js/comment.js"></script>
+<script src="/js/comment.js"></script>
+{{/if}}

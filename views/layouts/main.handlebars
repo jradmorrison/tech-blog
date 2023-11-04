@@ -20,7 +20,7 @@
         <h4><a href="/dashboard" class="mx-2">Dashboard</a></h4>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <h4><a href="/logout" class="mx-2">logout</a></h4>
+        <h4><a id="logout" class="mx-2">logout</a></h4>
         {{else}}
         <h4><a href="/login" class="mx-2">login</a></h4>
         {{/if}}
