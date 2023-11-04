@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert('Incorrect username or password');
     }

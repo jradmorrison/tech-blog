@@ -1,9 +1,28 @@
 <div class="my-4 b-primary rounded-4">
   <div class="bg-prmy p-1 rounded-top-3 px-2">
-    <h3 class="txt-drk">{{post.title}}</h3>
+    <h3 class="txt-drk d-inline-block">{{title}}</h3>
+    <p class="d-inline-block float-end mt-2">Created by:
+      {{user.username}}
+      on
+      {{format_date date_created}}</p>
   </div>
   <div class="p-2 px-3">
-    <p class="text-light">{{post.content}}</p>
+    <p class="text-light">{{content}}</p>
   </div>
-
 </div>
+{{#each comments}}
+  <div class="my-3 bg-light py-1 px-4 d-flex flex-row align-items-center rounded">
+    <h6 class="mb-0">{{user.username}}:</h6>
+    <p class="mb-0 mx-2">{{content}}</p>
+  </div>
+{{/each}}
+<div>
+  <form>
+  <div class="d-flex" id="comment-form">
+    <input type="text" class="form-control flex-grow-1" id="comment" placeholder="Leave a comment">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+
+<script src="./js/comment.js"></script>
