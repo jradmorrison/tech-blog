@@ -44,6 +44,14 @@ a {
     font-weight: 500;
 }
 
+.btn-red {
+    background-color: rgb(226, 48, 48);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 25px;
+    font-weight: 500;
+}
+
 #logout:hover {
     cursor: pointer;
 }
