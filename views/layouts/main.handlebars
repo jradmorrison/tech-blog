@@ -19,7 +19,6 @@
       <nav class="d-flex flex-row align-items-center">
         <h4><a href="/" class="mx-2">Home</a></h4>
         <h4><a href="/dashboard" class="mx-2">Dashboard</a></h4>
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <h4><a id="logout" class="mx-2">Logout</a></h4>
         {{else}}
@@ -29,7 +28,6 @@
     </header>
     
     <main class="container mt-5">
-      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
     <footer>
@@ -37,7 +35,6 @@
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
