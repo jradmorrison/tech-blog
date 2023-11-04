@@ -1,0 +1,45 @@
+:root {
+    --text: #ffffff;
+    --background: #222639;
+    --primary: #FB40FF;
+    --secondary: #222639;
+    --accent: #2450ff;
+}
+  
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+}
+
+header a {
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+}
+
+.b-primary {
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--primary);
+}
+
+.bg-prmy {
+    background-color: var(--primary);
+}
+
+.txt-drk {
+    color: var(--secondary);
+}
+
+.btn-prmy {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 25px;
+    font-weight: 500;
+}

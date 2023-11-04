@@ -11,8 +11,9 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('homepage', {
       posts,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -20,22 +21,36 @@ router.get('/', async (req, res) => {
 });
 
 // Todo: GET route for dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
+  if (req.session.logged_in) {
 
-router.get('/post/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }, {module: User}],
-    });
-
-    const post = postData.get({ plain: true });
-
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
+  } else {
+    res.redirect('/login');
   }
+})
+
+router.get('/posts/:id', withAuth, async (req, res) => {
+  if (req.session.logged_in) {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [{ model: Comment }, { module: User }],
+      });
+
+      const post = postData.get({ plain: true });
+
+      res.render('post', {
+        ...post,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+
+  } else {
+    res.redirect('/login');
+  }
+
+
 });
 
 // Use withAuth middleware to prevent access to route
@@ -69,5 +84,15 @@ router.get('/login', (req, res) => {
 });
 
 // Todo: GEt route for signup
+
+router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
+
+  res.render('signup');
+});
 
 module.exports = router;
