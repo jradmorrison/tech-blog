@@ -14,10 +14,10 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      
       document.location.replace('/');
     } else {
-      alert('Incorrect username or password');
+      await alert('Incorrect username or password');
+      document.location.reload();
     }
   }
 };

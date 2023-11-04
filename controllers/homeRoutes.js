@@ -20,9 +20,26 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Todo: GET route for dashboard
+
 router.get('/dashboard', withAuth, async (req, res) => {
-  
+  try {
+    const postData = await Post.findAll({
+      where: { user_id: req.session.user_id },
+      include: [{ model: User, attributes: ["username"] }],
+    });
+
+    if (!postData.length) {
+      res.render('noData')
+    } else {
+      const posts = postData.map((post) => post.get({ plain: true }));
+
+      res.render('dashboard', {
+        posts,
+      })
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
 })
 
 router.get('/posts/:id', async (req, res) => {
@@ -46,9 +63,16 @@ router.get('/posts/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-
-
 });
+
+router.get('/new-post', withAuth, (req, res) => {
+  try {
+    res.render('new-post');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  
+})
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
