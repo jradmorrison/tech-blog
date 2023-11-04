@@ -29,12 +29,15 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     if (!postData.length) {
-      res.render('noData')
+      res.render('noData', {
+        logged_in: req.session.logged_in,
+      })
     } else {
       const posts = postData.map((post) => post.get({ plain: true }));
 
       res.render('dashboard', {
         posts,
+        logged_in: req.session.logged_in,
       })
     }
   } catch (err) {
@@ -67,7 +70,9 @@ router.get('/posts/:id', async (req, res) => {
 
 router.get('/new-post', withAuth, (req, res) => {
   try {
-    res.render('new-post');
+    res.render('new-post', {
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
