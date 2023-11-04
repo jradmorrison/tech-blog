@@ -1,5 +1,6 @@
 const post_id = parseInt(window.location.pathname.split('/').pop());
 
+// Handles updating a blog post
 const handlePostUpdate = async (event) => {
     event.preventDefault();
 
@@ -21,6 +22,7 @@ const handlePostUpdate = async (event) => {
     }
 };
 
+// Handles deleting a blog post
 const handlePostDelete = async (event) => {
     event.preventDefault();
 
