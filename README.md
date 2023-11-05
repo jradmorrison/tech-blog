@@ -35,7 +35,7 @@
   <p align="center">
     A CMS-style blog site, where devs can publish their blogposts and comment on other developers' posts.
     <br><br>
-    <a href="https://warm-brushlands-22664-151feb64557a.herokuapp.com/">Visit the deployed site here</a>
+    <a href="https://warm-brushlands-22664-151feb64557a.herokuapp.com/" target="_blank">Visit the deployed site here</a>
   </p>
 </div>
 
